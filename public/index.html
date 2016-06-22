@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="commandApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CommandApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-deep_purple.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+</head>
+<body ng-controller="appCtrl">
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <timeline-header></timeline-header>
+
+        <md-progress-linear md-mode="indeterminate" ng-show="loading"></md-progress-linear>
+
+        <section class="content">
+          <md-list ng-cloak>
+            <md-list-item ng-repeat="user in users" ng-click="goToPerson(person.name, $event)" class="noright">
+              <p>{{ user.nome }} {{ user.dataNascimento }}</p>
+              <md-icon class="md-secondary" ng-click="deleteUser(user.codigo)" aria-label="Delete">delete</md-icon>
+            </md-list-item>
+          </md-list>
+        </section>
+
+        <add-user></add-user>
+
+    </div>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/users.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/appctrl.js"></script>
+
+    <!-- Directives -->
+    <script src="js/directives/utils.js"></script>
+    <script src="js/directives/timeline-header.js"></script>
+    <script src="js/directives/add-user.js"></script>
+
+</body>
+</html>
